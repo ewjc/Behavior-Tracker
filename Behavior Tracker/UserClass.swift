@@ -8,4 +8,23 @@
 
 import Foundation
 
-class 
+class User {
+    var name: String
+    var email: String
+    var image: String
+    var role: String
+    var adminPower: String
+    
+    init (name: String, email: String, image: String, role: String, adminPower: String) {
+        self.name = name
+        self.email = email
+        self.image = image
+        self.role = role
+        self.adminPower = adminPower
+    }
+    
+    func postTrack() {
+    
+    }
+    
+}
