@@ -10,8 +10,9 @@
 		0910AE891DBFC558009FB883 /* TrackStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0910AE881DBFC558009FB883 /* TrackStruct.swift */; };
 		0910AE8B1DBFC580009FB883 /* GoalStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0910AE8A1DBFC580009FB883 /* GoalStruct.swift */; };
 		0910AE8D1DBFCBFB009FB883 /* UserClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0910AE8C1DBFCBFB009FB883 /* UserClass.swift */; };
+		0910AE911DBFD619009FB883 /* CustomSliderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0910AE901DBFD619009FB883 /* CustomSliderVC.swift */; };
 		0981FA911DBED4CA00B6BA69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0981FA901DBED4CA00B6BA69 /* AppDelegate.swift */; };
-		0981FA931DBED4CA00B6BA69 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0981FA921DBED4CA00B6BA69 /* ViewController.swift */; };
+		0981FA931DBED4CA00B6BA69 /* BehaviorTrackingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0981FA921DBED4CA00B6BA69 /* BehaviorTrackingVC.swift */; };
 		0981FA961DBED4CA00B6BA69 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0981FA941DBED4CA00B6BA69 /* Main.storyboard */; };
 		0981FA981DBED4CA00B6BA69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0981FA971DBED4CA00B6BA69 /* Assets.xcassets */; };
 		0981FA9B1DBED4CA00B6BA69 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0981FA991DBED4CA00B6BA69 /* LaunchScreen.storyboard */; };
@@ -21,9 +22,10 @@
 		0910AE881DBFC558009FB883 /* TrackStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackStruct.swift; sourceTree = "<group>"; };
 		0910AE8A1DBFC580009FB883 /* GoalStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalStruct.swift; sourceTree = "<group>"; };
 		0910AE8C1DBFCBFB009FB883 /* UserClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserClass.swift; sourceTree = "<group>"; };
+		0910AE901DBFD619009FB883 /* CustomSliderVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSliderVC.swift; sourceTree = "<group>"; };
 		0981FA8D1DBED4CA00B6BA69 /* Behavior Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Behavior Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0981FA901DBED4CA00B6BA69 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0981FA921DBED4CA00B6BA69 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0981FA921DBED4CA00B6BA69 /* BehaviorTrackingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BehaviorTrackingVC.swift; sourceTree = "<group>"; };
 		0981FA951DBED4CA00B6BA69 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0981FA971DBED4CA00B6BA69 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0981FA9A1DBED4CA00B6BA69 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -61,7 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				0981FA901DBED4CA00B6BA69 /* AppDelegate.swift */,
-				0981FA921DBED4CA00B6BA69 /* ViewController.swift */,
+				0981FA921DBED4CA00B6BA69 /* BehaviorTrackingVC.swift */,
 				0981FA941DBED4CA00B6BA69 /* Main.storyboard */,
 				0981FA971DBED4CA00B6BA69 /* Assets.xcassets */,
 				0981FA991DBED4CA00B6BA69 /* LaunchScreen.storyboard */,
@@ -69,6 +71,7 @@
 				0910AE881DBFC558009FB883 /* TrackStruct.swift */,
 				0910AE8A1DBFC580009FB883 /* GoalStruct.swift */,
 				0910AE8C1DBFCBFB009FB883 /* UserClass.swift */,
+				0910AE901DBFD619009FB883 /* CustomSliderVC.swift */,
 			);
 			path = "Behavior Tracker";
 			sourceTree = "<group>";
@@ -148,7 +151,8 @@
 			files = (
 				0910AE8D1DBFCBFB009FB883 /* UserClass.swift in Sources */,
 				0910AE891DBFC558009FB883 /* TrackStruct.swift in Sources */,
-				0981FA931DBED4CA00B6BA69 /* ViewController.swift in Sources */,
+				0910AE911DBFD619009FB883 /* CustomSliderVC.swift in Sources */,
+				0981FA931DBED4CA00B6BA69 /* BehaviorTrackingVC.swift in Sources */,
 				0981FA911DBED4CA00B6BA69 /* AppDelegate.swift in Sources */,
 				0910AE8B1DBFC580009FB883 /* GoalStruct.swift in Sources */,
 			);

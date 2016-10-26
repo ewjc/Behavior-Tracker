@@ -9,6 +9,7 @@
 import Foundation
 
 struct Goal {
+    var user: String
     var important: Bool
     var title: String
     var actionSteps: String
