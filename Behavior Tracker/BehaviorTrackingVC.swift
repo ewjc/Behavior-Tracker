@@ -35,15 +35,13 @@ class BehaviorTrackingVC: UIViewController {
         if indexOfHighlightedButton >= 0 {
             moodButtons[indexOfHighlightedButton].backgroundColor = .clear
         }
-
+        
         for (i, button) in moodButtons.enumerated() {
             if button === sender {
                 indexOfHighlightedButton = i
             }
         }
         sender.backgroundColor = .blue
-
-        
     }
     
     @IBAction func addAudioRecording(_ sender: UIButton) {
@@ -62,9 +60,6 @@ class BehaviorTrackingVC: UIViewController {
         }
         
     }
-    
-    
-    
     
     
     
