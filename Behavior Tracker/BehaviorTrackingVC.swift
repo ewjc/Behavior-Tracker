@@ -10,25 +10,26 @@ import UIKit
 import AVFoundation
 
 class BehaviorTrackingVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
-
+    
     @IBOutlet var moodButtons: [UIButton]!
     
     var moodArray = ["😀", "😘", "😞", "😔", "😨", "😭", "😖", "😡"]
     
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var moodLabel: UILabel!
-    @IBOutlet weak var StressLabel: UILabel!
     @IBOutlet weak var physicalActivityLabel: UILabel!
-    @IBOutlet weak var dangerLabel: UILabel!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var additionalNotesField: UITextField!
+    @IBOutlet weak var triggerTextField: UITextField!
     @IBOutlet weak var shareWith: UILabel!
     @IBOutlet weak var behaviorTherapistImage: UIImageView!
     @IBOutlet weak var teacherImage: UIImageView!
     @IBOutlet weak var caregiverImage: UIImageView!
     @IBOutlet weak var caregiverTwoImage: UIImageView!
+    @IBOutlet weak var triggerLabel: UILabel!
     
+    @IBOutlet weak var resolutionTextField: UITextField!
+    @IBOutlet weak var resolutionLabel: UILabel!
     var indexOfHighlightedButton = -1
     
     @IBAction func moodButtonPressed(_ sender: UIButton) {
@@ -44,11 +45,12 @@ class BehaviorTrackingVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
         }
         sender.backgroundColor = .blue
     }
-
+    
     @IBAction func addVideoRecording(_ sender: UIButton) {
     }
     @IBAction func trackButtonPressed(_ sender: AnyObject) {
     }
+    
     
     
     override func viewDidLoad() {
@@ -69,10 +71,10 @@ class BehaviorTrackingVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
                     if allowed {
                         print("allowed!")
                     } else {
-                    let alertMessage = UIAlertController(title: "Error", message: "Failed to record. Please try again later.", preferredStyle: .alert);
+                        let alertMessage = UIAlertController(title: "Error", message: "Failed to record. Please try again later.", preferredStyle: .alert);
                         alertMessage.addAction(UIAlertAction(title: "OK", style: .default, handler: nil));
                         self.present(alertMessage, animated: true, completion: nil)
-                    return
+                        return
                     }
                 }
             }
@@ -82,7 +84,7 @@ class BehaviorTrackingVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
     }
     
     //MARK: RECORDING ASPECT OF APP
-
+    
     var recordingSession: AVAudioSession!
     var audioRecorder: AVAudioRecorder!
     
@@ -103,7 +105,7 @@ class BehaviorTrackingVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
     }
     
     @IBAction func playTapped(_ sender: UIButton) {
-
+        
     }
     
     
@@ -116,7 +118,7 @@ class BehaviorTrackingVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
             alertMessage.addAction(UIAlertAction(title: "OK", style: .default, handler: nil));
             self.present(alertMessage, animated: true, completion: nil)
             return
-            recordButton.setTitle("Tap to Re-record", for: .normal)
+                recordButton.setTitle("Tap to Re-record", for: .normal)
         } else {
             recordButton.setTitle("Tap to Record", for: .normal)
             // recording failed :(

@@ -21,5 +21,4 @@ struct Track {
     var shareWith: String
     
 //Add video recording and camera recording
-    
 }
