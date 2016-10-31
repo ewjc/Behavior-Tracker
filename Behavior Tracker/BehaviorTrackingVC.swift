@@ -144,6 +144,12 @@ class BehaviorTrackingVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
     }
     
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
+        print("we finished recording...so now lets do something")
+        let myPlayer = AVAudioPlayer(contentsOf: )
+        myPlayer.volume = 0.5
+        myPlayer.play()
+        print("play")
+        
         if !flag {
             finishRecording(success: false)
         }
