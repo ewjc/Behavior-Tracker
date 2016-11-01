@@ -1,0 +1,6 @@
+framework module Pods_Behavior_Tracker {
+  umbrella header "Pods-Behavior Tracker-umbrella.h"
+
+  export *
+  module * { export * }
+}

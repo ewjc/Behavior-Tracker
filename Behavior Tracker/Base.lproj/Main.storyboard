@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oo9-Qf-LSA" id="7Jq-en-Mum">
-                                    <frame key="frameInset" width="375" height="43"/>
+                                    <frame key="frameInset" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DOT-ed-bmj">
@@ -174,9 +174,9 @@
                                     <action selector="trackButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0M6-Oh-Uzr"/>
                                 </connections>
                             </button>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="gMx-lr-UY6"/>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="vIl-ph-KIk"/>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="jjC-gq-geX"/>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="gMx-lr-UY6"/>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="vIl-ph-KIk"/>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="jjC-gq-geX"/>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dbq-KD-PSj">
                                 <state key="normal" title="Add Video Recording"/>
                                 <connections>
@@ -368,6 +368,7 @@
                     <tabBarItem key="tabBarItem" title="Item" id="h75-hf-K3e"/>
                     <navigationItem key="navigationItem" title="Behavior Tracking" id="OyP-Yg-ySO"/>
                     <connections>
+                        <outlet property="activityLevelSlider" destination="gMx-lr-UY6" id="rnU-0D-6Rr"/>
                         <outlet property="additionalNotesField" destination="Zo4-7b-uDR" id="Fia-eq-gQm"/>
                         <outlet property="dateLabel" destination="kok-8I-UXd" id="6DK-5e-OZO"/>
                         <outlet property="locationTextField" destination="SwJ-uG-KZ2" id="K88-MN-ZVl"/>
@@ -375,6 +376,8 @@
                         <outlet property="progressView" destination="1d6-cD-Kmc" id="HXW-Xa-tn1"/>
                         <outlet property="resolutionLabel" destination="YOv-mF-QHd" id="DE1-Er-nms"/>
                         <outlet property="resolutionTextField" destination="C0P-zl-tww" id="z5g-8w-ML2"/>
+                        <outlet property="selfHarmSlider" destination="vIl-ph-KIk" id="x6g-OW-KNu"/>
+                        <outlet property="stressSlider" destination="jjC-gq-geX" id="laj-ef-2BY"/>
                         <outlet property="timeLabel" destination="XRb-Ie-ADZ" id="FVX-A9-WQn"/>
                         <outlet property="triggerLabel" destination="7kt-MY-TjY" id="nyE-am-ed8"/>
                         <outlet property="triggerTextField" destination="mhy-3X-Eej" id="1rC-Rk-tP7"/>
@@ -405,7 +408,7 @@
                                 <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yPh-9I-w9w" id="OoY-fd-1Zd">
-                                    <frame key="frameInset" width="375" height="43"/>
+                                    <frame key="frameInset" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JbF-Vt-8ID">
@@ -496,7 +499,7 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0kj-yW-Qob" id="Tej-Id-ySg">
-                                            <frame key="frameInset" width="343" height="43"/>
+                                            <frame key="frameInset" width="343" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Task Level" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QFF-ik-4A3">

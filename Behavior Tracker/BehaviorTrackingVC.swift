@@ -15,7 +15,14 @@ class BehaviorTrackingVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
     @IBOutlet var moodButtons: [UIButton]!
     
     var moodArray = ["😀", "😘", "😞", "😔", "😨", "😭", "😖", "😡"]
+    var behaviorTracks: [BehaviorTrack] = []
+    var selectedMood = 0
     
+    let date = Date()
+    let calendar = Calendar.current
+
+    let formatter = DateFormatter()
+
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var physicalActivityLabel: UILabel!
@@ -33,6 +40,11 @@ class BehaviorTrackingVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
     @IBOutlet weak var resolutionLabel: UILabel!
     var indexOfHighlightedButton = -1
     
+    @IBOutlet weak var activityLevelSlider: UISlider!
+    @IBOutlet weak var selfHarmSlider: UISlider!
+    @IBOutlet weak var stressSlider: UISlider!
+    
+    
     @IBAction func moodButtonPressed(_ sender: UIButton) {
         
         if indexOfHighlightedButton >= 0 {
@@ -42,20 +54,43 @@ class BehaviorTrackingVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
         for (i, button) in moodButtons.enumerated() {
             if button === sender {
                 indexOfHighlightedButton = i
+                
             }
         }
+        print(sender)
+        selectedMood = indexOfHighlightedButton
         sender.backgroundColor = .blue
     }
     
     @IBAction func addVideoRecording(_ sender: UIButton) {
     }
     @IBAction func trackButtonPressed(_ sender: AnyObject) {
+    var behavior = BehaviorTrack(mood: selectedMood, stress: Int(stressSlider.value), activityLevel: Int(activityLevelSlider.value), selfHarm: Int(selfHarmSlider.value), location: "1547 Mission Street", date: dateLabel.text!, time: timeLabel.text!, notes: additionalNotesField.text!, trigger: triggerTextField.text!, resolution: resolutionTextField.text!)
+        
+        behaviorTracks.append(behavior)
+        print(behavior.time)
+        print(behaviorTracks.count)
+        
+        var msg = "Your behavior note has been recorded successfully!"
+        let alert = UIAlertController(title: "Succes", message: msg, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     
     //MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        formatter.dateFormat = "MM/dd/yyyy"
+        let result = formatter.string(from: date)
+        dateLabel.text = ("Date: \(result)")
+
+        var components = calendar.dateComponents([.hour, .minute], from: date)
+        if components.hour! > 12 {
+            components.hour = components.hour! - 12
+        }
+        timeLabel.text = ("Time: \(components.hour!):\(components.minute!)")
         
         for i in 0..<moodButtons.count {
             moodButtons[i].setTitle(moodArray[i], for: .normal)
@@ -139,7 +174,6 @@ class BehaviorTrackingVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
             let documentsDirectoryURL: URL = urls.first!
             soundFileName = "recording-" + randomString() + ".caf"
             let audioFileURL = documentsDirectoryURL.appendingPathComponent(self.soundFileName)
-            
             /*** DEBUG STATEMENT ***/
             print("Audio File Url\n\(audioFileURL)")
             
@@ -209,8 +243,8 @@ class BehaviorTrackingVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
 //        if audioPlayer.isPlaying {
 //            audioPlayer.pause()
 //        } else {}
-            audioPlayer.play()
-            timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(BehaviorTrackingVC.updatePlayedTime), userInfo: nil, repeats: true)
+//            audioPlayer.play()
+//            timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(BehaviorTrackingVC.updatePlayedTime), userInfo: nil, repeats: true)
     }
     
     @IBAction func stopTapped(_ sender: UIButton) {

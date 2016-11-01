@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import RealmSwift
 
 class BehaviorTrack {
     var mood: Int!
@@ -15,13 +16,13 @@ class BehaviorTrack {
     var activityLevel: Int!
     var selfHarm: Int!
     var location: String!
-    var date: Date!
-    var time: Date!
+    var date: String!
+    var time: String!
     var notes: String?
     var trigger: String?
     var resolution: String?
     
-    init(mood: Int, stress: Int, activityLevel: Int, selfHarm: Int, location: String, date: Date, time: Date, notes: String, trigger: String, resolution: String) {
+    init(mood: Int, stress: Int, activityLevel: Int, selfHarm: Int, location: String, date: String, time: String, notes: String, trigger: String, resolution: String) {
         self.mood = mood
         self.stress = stress
         self.activityLevel = activityLevel
