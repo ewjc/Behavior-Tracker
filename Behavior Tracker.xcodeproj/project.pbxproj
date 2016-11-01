@@ -11,7 +11,6 @@
 		0910AE891DBFC558009FB883 /* BehaviorTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0910AE881DBFC558009FB883 /* BehaviorTrack.swift */; };
 		0910AE8B1DBFC580009FB883 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0910AE8A1DBFC580009FB883 /* Goal.swift */; };
 		0910AE8D1DBFCBFB009FB883 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0910AE8C1DBFCBFB009FB883 /* User.swift */; };
-		0910AE911DBFD619009FB883 /* CustomSliderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0910AE901DBFD619009FB883 /* CustomSliderVC.swift */; };
 		0981FA911DBED4CA00B6BA69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0981FA901DBED4CA00B6BA69 /* AppDelegate.swift */; };
 		0981FA931DBED4CA00B6BA69 /* BehaviorTrackingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0981FA921DBED4CA00B6BA69 /* BehaviorTrackingVC.swift */; };
 		0981FA961DBED4CA00B6BA69 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0981FA941DBED4CA00B6BA69 /* Main.storyboard */; };
@@ -24,7 +23,6 @@
 		0910AE881DBFC558009FB883 /* BehaviorTrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BehaviorTrack.swift; sourceTree = "<group>"; };
 		0910AE8A1DBFC580009FB883 /* Goal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		0910AE8C1DBFCBFB009FB883 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		0910AE901DBFD619009FB883 /* CustomSliderVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSliderVC.swift; sourceTree = "<group>"; };
 		0981FA8D1DBED4CA00B6BA69 /* Behavior Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Behavior Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0981FA901DBED4CA00B6BA69 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0981FA921DBED4CA00B6BA69 /* BehaviorTrackingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BehaviorTrackingVC.swift; sourceTree = "<group>"; };
@@ -51,7 +49,6 @@
 				0910AE881DBFC558009FB883 /* BehaviorTrack.swift */,
 				0910AE8A1DBFC580009FB883 /* Goal.swift */,
 				0910AE8C1DBFCBFB009FB883 /* User.swift */,
-				0910AE901DBFD619009FB883 /* CustomSliderVC.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -162,7 +159,6 @@
 			files = (
 				0910AE8D1DBFCBFB009FB883 /* User.swift in Sources */,
 				0910AE891DBFC558009FB883 /* BehaviorTrack.swift in Sources */,
-				0910AE911DBFD619009FB883 /* CustomSliderVC.swift in Sources */,
 				0906B5231DC7DE0E008031E1 /* TrackedNotesVC.swift in Sources */,
 				0981FA931DBED4CA00B6BA69 /* BehaviorTrackingVC.swift in Sources */,
 				0981FA911DBED4CA00B6BA69 /* AppDelegate.swift in Sources */,

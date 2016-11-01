@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 
+
 class BehaviorTrackingVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
     
     @IBOutlet var moodButtons: [UIButton]!
@@ -52,7 +53,7 @@ class BehaviorTrackingVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
     }
     
     
-    
+    //MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -60,94 +61,164 @@ class BehaviorTrackingVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
             moodButtons[i].setTitle(moodArray[i], for: .normal)
             
         }
+        progressView.tintColor = UIColor(red: 1.0, green: 0.02, blue: 0.00, alpha: 1.0)
+        progressView.progress = progressCounter
         
-        recordingSession = AVAudioSession.sharedInstance()
+        /*** DEBUG STATEMENT ***/
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        print(paths.first!)
+        
+        let fileManager = FileManager.default
+        let urls = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentsDirectoryURL: URL = urls.first!
+        fileURL = documentsDirectoryURL.appendingPathComponent(selectedAudioFileName)
         
         do {
-            try recordingSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
-            try recordingSession.setActive(true)
-            recordingSession.requestRecordPermission() { [unowned self] allowed in
-                DispatchQueue.main.async {
-                    if allowed {
-                        print("allowed!")
-                    } else {
-                        let alertMessage = UIAlertController(title: "Error", message: "Failed to record. Please try again later.", preferredStyle: .alert);
-                        alertMessage.addAction(UIAlertAction(title: "OK", style: .default, handler: nil));
-                        self.present(alertMessage, animated: true, completion: nil)
-                        return
-                    }
-                }
-            }
-        } catch {
-            // failed to record!
+            audioPlayer = try AVAudioPlayer(contentsOf: fileURL!)
+            audioPlayer.prepareToPlay()
+            audioPlayer.delegate = self
+            
+            /*** DEBUG STATEMENT ***/
+            print("The audioPlayer is initialized with this URL:\n\(fileURL)")
+            
+        } catch let error as NSError {
+            print("AUDIO PLAYER ERROR\n\(error.localizedDescription)")
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        if audioPlayer.isPlaying {
+            audioPlayer.stop() // Stop the sound that's playing
         }
     }
     
     //MARK: RECORDING ASPECT OF APP
     
+    //MARK:  Properties
+    var progressCounter: Float = 0.00
+    var progressViewTimer: Timer!
+    var soundFileName: String!
     var recordingSession: AVAudioSession!
     var audioRecorder: AVAudioRecorder!
+    var audioPlayer = AVAudioPlayer()
+    var selectedAudioFileName = String()
+    var fileURL : URL?
+    var timer:Timer!
+
+    //MARK: IBOutlets
+    @IBOutlet weak var progressView: UIProgressView!
     
-    @IBOutlet weak var recordButton: UIButton!
-    
-    func getDocumentsDirectory() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let documentsDirectory = paths[0]
-        return documentsDirectory
+    //MARK: Functions
+    func updateProgressView() {
+        progressCounter += 0.01
+        progressView.progress = progressCounter
+        
+        if progressCounter > 1.0 {
+            progressViewTimer.invalidate()
+        }
+        
+        /*** DEBUG STATEMENT ***/
+        print("Progress: \(progressCounter)")
     }
     
-    @IBAction func recordTapped() {
-        if audioRecorder == nil {
-            recordAudio()
-        } else {
-            finishRecording(success: true)
+    func updatePlayedTime() {
+        let currentTime = Int(audioPlayer.currentTime)
+        let minutes = currentTime/60
+        _ = currentTime - minutes * 60
+    }
+    
+    func setupAudioRecorder() {
+        recordingSession = AVAudioSession.sharedInstance()
+        
+        do {
+            try recordingSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
+            try recordingSession.setActive(true)
+            
+            let fileManager = FileManager.default
+            let urls = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
+            let documentsDirectoryURL: URL = urls.first!
+            soundFileName = "recording-" + randomString() + ".caf"
+            let audioFileURL = documentsDirectoryURL.appendingPathComponent(self.soundFileName)
+            
+            /*** DEBUG STATEMENT ***/
+            print("Audio File Url\n\(audioFileURL)")
+            
+            let audioSettings = [AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
+                                 AVSampleRateKey: 12000.0,
+                                 AVNumberOfChannelsKey: 1 as NSNumber,
+                                 AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue] as [String : Any]
+            
+            do {
+                audioRecorder = try AVAudioRecorder(url: audioFileURL, settings: audioSettings)
+                audioRecorder.delegate = self
+                audioRecorder.prepareToRecord()
+            } catch let error as NSError {
+                
+                // Recorder not initialized
+                /*** DEBUG STATEMENT ***/
+                print(error.localizedDescription)
+            }
+        } catch let error as NSError {
+            print("Recording session failed: \(error.localizedDescription)")
         }
+    }
+    
+    func randomString() -> String {
+        let len: Int = 3 // String length
+        let needle : NSString = "0123456789"
+        let randomString : NSMutableString = NSMutableString(capacity: len)
+        
+        for _ in 0..<len{
+            let length = UInt32 (needle.length)
+            let rand = arc4random_uniform(length)
+            randomString.appendFormat("%C", needle.character(at: Int(rand)))
+        }
+        
+        return randomString as String
+    }
+    
+    // MARK: - AVAudioRecorder delegates
+    
+    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
+        let msg = "Your recording was saved!"
+        let alert = UIAlertController(title: "Voice Notes", message: msg, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func audioRecorderEncodeErrorDidOccur(_ recorder: AVAudioRecorder, error: Error?) {
+        let alert = UIAlertController(title: "Voice Notes", message: error!.localizedDescription, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    //MARK: IBActions
+    @IBAction func recordTapped() {
+        progressCounter = 0.0
+        setupAudioRecorder()
+        audioRecorder.record()
+        
+        if progressViewTimer != nil {
+            progressViewTimer.invalidate()
+        }
+        
+        progressViewTimer = Timer.scheduledTimer(timeInterval: 0.5, target:self, selector:#selector(BehaviorTrackingVC.updateProgressView), userInfo:nil, repeats:true)
     }
     
     @IBAction func playTapped(_ sender: UIButton) {
-        
+//        if audioPlayer.isPlaying {
+//            audioPlayer.pause()
+//        } else {}
+            audioPlayer.play()
+            timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(BehaviorTrackingVC.updatePlayedTime), userInfo: nil, repeats: true)
     }
     
-    
-    func finishRecording(success: Bool) {
-        audioRecorder.stop()
-        audioRecorder = nil
-        
-        if success {
-            let alertMessage = UIAlertController(title: "Success", message: "Your audio recording has been successfully added!", preferredStyle: .alert);
-            alertMessage.addAction(UIAlertAction(title: "OK", style: .default, handler: nil));
-            self.present(alertMessage, animated: true, completion: nil)
-            return
-                recordButton.setTitle("Tap to Re-record", for: .normal)
-        } else {
-            recordButton.setTitle("Tap to Record", for: .normal)
-            // recording failed :(
+    @IBAction func stopTapped(_ sender: UIButton) {
+        if audioRecorder != nil {
+            audioRecorder.stop()
+            progressViewTimer.invalidate()
+            progressView.progress = 0.0
         }
     }
-    
-    func recordAudio() {
-        let audioFilename = getDocumentsDirectory().appendingPathComponent("recording.m4a")
-        let settings = [
-            AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
-            AVSampleRateKey: 12000,
-            AVNumberOfChannelsKey: 1,
-            AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
-        ]
-        do {
-            audioRecorder = try AVAudioRecorder(url: audioFilename, settings: settings)
-            audioRecorder.delegate = self
-            audioRecorder.record()
-            recordButton.setTitle("Tap to Stop", for: .normal)
-        } catch {
-            finishRecording(success: false)
-        }
-    }
-    
-    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
-        if !flag {
-            finishRecording(success: false)
-        }
-    }
-    
 }
 
