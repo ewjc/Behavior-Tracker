@@ -12,34 +12,27 @@ import AVFoundation
 
 class BehaviorTrackingVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
     
-    @IBOutlet var moodButtons: [UIButton]!
+
     
     var moodArray = ["😀", "😘", "😞", "😔", "😨", "😭", "😖", "😡"]
     var behaviorTracks: [BehaviorTrack] = []
     var selectedMood = 0
-    
+    var indexOfHighlightedButton = -1
     let date = Date()
     let calendar = Calendar.current
-
     let formatter = DateFormatter()
 
+    @IBOutlet var moodButtons: [UIButton]!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var physicalActivityLabel: UILabel!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var additionalNotesField: UITextField!
     @IBOutlet weak var triggerTextField: UITextField!
-    @IBOutlet weak var shareWith: UILabel!
-    @IBOutlet weak var behaviorTherapistImage: UIImageView!
-    @IBOutlet weak var teacherImage: UIImageView!
-    @IBOutlet weak var caregiverImage: UIImageView!
-    @IBOutlet weak var caregiverTwoImage: UIImageView!
     @IBOutlet weak var triggerLabel: UILabel!
-    
     @IBOutlet weak var resolutionTextField: UITextField!
     @IBOutlet weak var resolutionLabel: UILabel!
-    var indexOfHighlightedButton = -1
-    
+
     @IBOutlet weak var activityLevelSlider: UISlider!
     @IBOutlet weak var selfHarmSlider: UISlider!
     @IBOutlet weak var stressSlider: UISlider!
@@ -65,23 +58,25 @@ class BehaviorTrackingVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
     @IBAction func addVideoRecording(_ sender: UIButton) {
     }
     @IBAction func trackButtonPressed(_ sender: AnyObject) {
-    var behavior = BehaviorTrack(mood: selectedMood, stress: Int(stressSlider.value), activityLevel: Int(activityLevelSlider.value), selfHarm: Int(selfHarmSlider.value), location: "1547 Mission Street", date: dateLabel.text!, time: timeLabel.text!, notes: additionalNotesField.text!, trigger: triggerTextField.text!, resolution: resolutionTextField.text!)
+    let behavior = BehaviorTrack(mood: selectedMood, stress: Int(stressSlider.value), activityLevel: Int(activityLevelSlider.value), selfHarm: Int(selfHarmSlider.value), location: "1547 Mission Street", date: dateLabel.text!, time: timeLabel.text!, notes: additionalNotesField.text!, trigger: triggerTextField.text!, resolution: resolutionTextField.text!)
         
         behaviorTracks.append(behavior)
         print(behavior.time)
         print(behaviorTracks.count)
         
-        var msg = "Your behavior note has been recorded successfully!"
+        let msg = "Your behavior note has been recorded successfully!"
         let alert = UIAlertController(title: "Succes", message: msg, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     
     
+    
     //MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //MARK: DATE
         formatter.dateFormat = "MM/dd/yyyy"
         let result = formatter.string(from: date)
         dateLabel.text = ("Date: \(result)")
@@ -92,10 +87,13 @@ class BehaviorTrackingVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
         }
         timeLabel.text = ("Time: \(components.hour!):\(components.minute!)")
         
+        //MARK: MOODS
         for i in 0..<moodButtons.count {
             moodButtons[i].setTitle(moodArray[i], for: .normal)
             
         }
+        
+        //MARK: PROGRESS VIEW BAR
         progressView.tintColor = UIColor(red: 1.0, green: 0.02, blue: 0.00, alpha: 1.0)
         progressView.progress = progressCounter
         
@@ -122,10 +120,12 @@ class BehaviorTrackingVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        if audioPlayer.isPlaying {
-            audioPlayer.stop() // Stop the sound that's playing
-        }
+//        if audioPlayer.isPlaying {
+//            audioPlayer.stop() // Stop the sound that's playing
+//        }
     }
+    
+    
     
     //MARK: RECORDING ASPECT OF APP
     

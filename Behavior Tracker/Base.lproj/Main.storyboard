@@ -365,7 +365,7 @@
                             <constraint firstItem="Zo4-7b-uDR" firstAttribute="top" secondItem="SwJ-uG-KZ2" secondAttribute="bottom" constant="16" id="ymT-YU-zWk"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="h75-hf-K3e"/>
+                    <tabBarItem key="tabBarItem" title="" selectedImage="home" id="h75-hf-K3e"/>
                     <navigationItem key="navigationItem" title="Behavior Tracking" id="OyP-Yg-ySO"/>
                     <connections>
                         <outlet property="activityLevelSlider" destination="gMx-lr-UY6" id="rnU-0D-6Rr"/>
@@ -395,7 +395,7 @@
             </objects>
             <point key="canvasLocation" x="988" y="138.98050974512745"/>
         </scene>
-        <!--Item-->
+        <!--Table View Controller-->
         <scene sceneID="OhZ-Bp-n5e">
             <objects>
                 <tableViewController id="eYf-kc-bo1" sceneMemberID="viewController">
@@ -449,7 +449,7 @@
                             <outlet property="delegate" destination="eYf-kc-bo1" id="AXH-Oy-3UB"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="1e7-ey-fel"/>
+                    <tabBarItem key="tabBarItem" title="" selectedImage="rate@1x" id="1e7-ey-fel"/>
                     <navigationItem key="navigationItem" id="NNE-Hg-uFH"/>
                     <connections>
                         <segue destination="XGr-o2-RR0" kind="show" id="On0-RK-bfT"/>
@@ -624,7 +624,7 @@
         <scene sceneID="0cM-Fd-S5B">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="f5O-tf-0u8" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="NN1-qH-ab0"/>
+                    <tabBarItem key="tabBarItem" title="Item" selectedImage="home" id="NN1-qH-ab0"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="71b-qi-Tt1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -839,8 +839,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="home" width="40" height="40"/>
         <image name="pause" width="128" height="128"/>
         <image name="play" width="128" height="128"/>
+        <image name="rate@1x" width="40" height="40"/>
         <image name="record" width="128" height="128"/>
         <image name="stop" width="128" height="128"/>
     </resources>
