@@ -8,14 +8,13 @@
 
 import UIKit
 import AVFoundation
+import RealmSwift
 
 
 class BehaviorTrackingVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
     
-
-    
     var moodArray = ["😀", "😘", "😞", "😔", "😨", "😭", "😖", "😡"]
-    var behaviorTracks: [BehaviorTrack] = []
+    var behaviorTracks = List<BehaviorTrack>()
     var selectedMood = 0
     var indexOfHighlightedButton = -1
     let date = Date()
@@ -58,11 +57,12 @@ class BehaviorTrackingVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
     @IBAction func addVideoRecording(_ sender: UIButton) {
     }
     @IBAction func trackButtonPressed(_ sender: AnyObject) {
-    let behavior = BehaviorTrack(mood: selectedMood, stress: Int(stressSlider.value), activityLevel: Int(activityLevelSlider.value), selfHarm: Int(selfHarmSlider.value), location: "1547 Mission Street", date: dateLabel.text!, time: timeLabel.text!, notes: additionalNotesField.text!, trigger: triggerTextField.text!, resolution: resolutionTextField.text!)
+    let behavior = BehaviorTrack(mood: selectedMood, stress: Int(stressSlider.value), activityLevel: Int(activityLevelSlider.value), selfHarm: Int(selfHarmSlider.value), location: locationTextField.text!, date: dateLabel.text!, time: timeLabel.text!, notes: additionalNotesField.text!, trigger: triggerTextField.text!, resolution: resolutionTextField.text!)
         
+        RealmHelper.addBehaviorTrack(behavior: behavior)
         behaviorTracks.append(behavior)
-        print(behavior.time)
-        print(behaviorTracks.count)
+        
+        print(behavior)
         
         let msg = "Your behavior note has been recorded successfully!"
         let alert = UIAlertController(title: "Succes", message: msg, preferredStyle: .alert)
@@ -75,6 +75,12 @@ class BehaviorTrackingVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
     //MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        //added to realm database
+//        RealmHelper.addBehaviorTrack(behavior: behavior)
+        //retrieve from database
+        var realmBehaviors = RealmHelper.retrieveBehavior()
+        
+        print(realmBehaviors)
         
         //MARK: DATE
         formatter.dateFormat = "MM/dd/yyyy"
@@ -120,6 +126,8 @@ class BehaviorTrackingVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        var realmBehaviors = RealmHelper.retrieveBehavior()
+        print(realmBehaviors)
 //        if audioPlayer.isPlaying {
 //            audioPlayer.stop() // Stop the sound that's playing
 //        }

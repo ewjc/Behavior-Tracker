@@ -23,8 +23,4 @@ class User {
         self.adminPower = adminPower
     }
     
-    func postTrack() {
-    
-    }
-    
 }
