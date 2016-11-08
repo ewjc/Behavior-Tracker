@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--Notes Table View Controller-->
         <scene sceneID="r9g-tz-Ipw">
             <objects>
-                <tableViewController id="hfZ-Ce-ua6" sceneMemberID="viewController">
+                <tableViewController id="hfZ-Ce-ua6" customClass="NotesTableViewController" customModule="Behavior_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="oDs-ce-PMC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oo9-Qf-LSA" id="7Jq-en-Mum">
-                                    <frame key="frameInset" width="375" height="44"/>
+                                    <frame key="frameInset" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DOT-ed-bmj">
@@ -63,6 +63,10 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="8cw-qg-Qwm"/>
                     <connections>
+                        <outlet property="dateLabel" destination="pNz-tl-aUg" id="J7N-0v-MCg"/>
+                        <outlet property="locationLabel" destination="Kps-7O-MdS" id="Jwe-gI-xjR"/>
+                        <outlet property="moodLabel" destination="5PL-Ir-dl4" id="Nq2-AC-p90"/>
+                        <outlet property="timeLabel" destination="DOT-ed-bmj" id="nmV-TT-XBv"/>
                         <segue destination="JIU-tb-nK0" kind="show" id="qyz-CA-mHm"/>
                     </connections>
                 </tableViewController>
@@ -139,8 +143,10 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SwJ-uG-KZ2">
-                                <frame key="frameInset" minX="16" minY="477" width="97" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SwJ-uG-KZ2">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="1Bu-LD-j6R"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -343,6 +349,7 @@
                             <constraint firstItem="BKt-Ax-xN2" firstAttribute="top" secondItem="rbI-sQ-hY6" secondAttribute="bottom" constant="24" id="bDa-00-TqU"/>
                             <constraint firstItem="BKt-Ax-xN2" firstAttribute="leading" secondItem="7kt-MY-TjY" secondAttribute="leading" id="dOt-Er-Aep"/>
                             <constraint firstItem="YOv-mF-QHd" firstAttribute="leading" secondItem="vta-bF-xG9" secondAttribute="leading" id="dh0-IN-cIU"/>
+                            <constraint firstItem="Zo4-7b-uDR" firstAttribute="top" secondItem="SwJ-uG-KZ2" secondAttribute="bottom" constant="16" id="dk1-Mc-Aj8"/>
                             <constraint firstItem="dbq-KD-PSj" firstAttribute="top" secondItem="FKa-8I-96q" secondAttribute="bottom" constant="20" id="eOl-2e-VMG"/>
                             <constraint firstItem="FKa-8I-96q" firstAttribute="top" secondItem="JEP-fA-JS4" secondAttribute="top" id="eSy-Gx-hDE"/>
                             <constraint firstItem="kok-8I-UXd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="eaq-92-ubl"/>
@@ -352,17 +359,16 @@
                             <constraint firstItem="vIl-ph-KIk" firstAttribute="top" secondItem="gMx-lr-UY6" secondAttribute="bottom" constant="17" id="mjF-hk-8CG"/>
                             <constraint firstItem="xU3-01-giL" firstAttribute="top" secondItem="kok-8I-UXd" secondAttribute="bottom" constant="6" id="njY-3a-oos"/>
                             <constraint firstItem="mhy-3X-Eej" firstAttribute="leading" secondItem="C0P-zl-tww" secondAttribute="leading" id="oAa-cy-Nqh"/>
-                            <constraint firstItem="vta-bF-xG9" firstAttribute="leading" secondItem="SwJ-uG-KZ2" secondAttribute="leading" id="oMJ-Ek-cBb"/>
+                            <constraint firstItem="SwJ-uG-KZ2" firstAttribute="top" secondItem="dbq-KD-PSj" secondAttribute="bottom" constant="23" id="pdB-ad-Q19"/>
                             <constraint firstItem="YOv-mF-QHd" firstAttribute="top" secondItem="7kt-MY-TjY" secondAttribute="bottom" constant="18" id="sG6-am-r0k"/>
                             <constraint firstItem="DRN-FU-k5N" firstAttribute="leading" secondItem="C0P-zl-tww" secondAttribute="trailing" constant="57" id="sxt-9V-Ril"/>
                             <constraint firstItem="XRb-Ie-ADZ" firstAttribute="trailing" secondItem="C0P-zl-tww" secondAttribute="trailing" id="ufj-SS-a8G"/>
                             <constraint firstItem="jjC-gq-geX" firstAttribute="leading" secondItem="gMx-lr-UY6" secondAttribute="leading" id="v2j-c0-n1x"/>
                             <constraint firstItem="mhy-3X-Eej" firstAttribute="leading" secondItem="7kt-MY-TjY" secondAttribute="trailing" constant="50" id="vBX-LV-BNa"/>
-                            <constraint firstItem="SwJ-uG-KZ2" firstAttribute="top" secondItem="dbq-KD-PSj" secondAttribute="bottom" constant="23" id="vGx-UZ-xb5"/>
+                            <constraint firstItem="SwJ-uG-KZ2" firstAttribute="leading" secondItem="Zo4-7b-uDR" secondAttribute="leading" id="xc6-th-Spf"/>
                             <constraint firstItem="vta-bF-xG9" firstAttribute="leading" secondItem="Zo4-7b-uDR" secondAttribute="leading" id="yIN-Kn-sjt"/>
                             <constraint firstItem="rbI-sQ-hY6" firstAttribute="top" secondItem="TSn-yh-T4h" secondAttribute="bottom" constant="27" id="yM2-aP-8nA"/>
                             <constraint firstItem="vta-bF-xG9" firstAttribute="leading" secondItem="dbq-KD-PSj" secondAttribute="leading" id="yj3-YS-ruw"/>
-                            <constraint firstItem="Zo4-7b-uDR" firstAttribute="top" secondItem="SwJ-uG-KZ2" secondAttribute="bottom" constant="16" id="ymT-YU-zWk"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" selectedImage="home" id="h75-hf-K3e"/>
@@ -408,7 +414,7 @@
                                 <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yPh-9I-w9w" id="OoY-fd-1Zd">
-                                    <frame key="frameInset" width="375" height="44"/>
+                                    <frame key="frameInset" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JbF-Vt-8ID">
@@ -499,7 +505,7 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0kj-yW-Qob" id="Tej-Id-ySg">
-                                            <frame key="frameInset" width="343" height="44"/>
+                                            <frame key="frameInset" width="343" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Task Level" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QFF-ik-4A3">

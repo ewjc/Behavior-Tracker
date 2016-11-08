@@ -45,7 +45,8 @@ class RealmHelper {
     static func retrieveBehavior() -> Results<BehaviorTrack>
     {
         let realm = try! Realm()
-        return realm.objects(BehaviorTrack)
+        return realm.objects(BehaviorTrack.self)
     }
 }
+
 

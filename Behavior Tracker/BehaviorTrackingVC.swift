@@ -26,12 +26,11 @@ class BehaviorTrackingVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var physicalActivityLabel: UILabel!
     @IBOutlet weak var locationTextField: UITextField!
-    @IBOutlet weak var additionalNotesField: UITextField!
-    @IBOutlet weak var triggerTextField: UITextField!
+    @IBOutlet weak var additionalNotesField: UITextField?
+    @IBOutlet weak var triggerTextField: UITextField?
     @IBOutlet weak var triggerLabel: UILabel!
-    @IBOutlet weak var resolutionTextField: UITextField!
+    @IBOutlet weak var resolutionTextField: UITextField?
     @IBOutlet weak var resolutionLabel: UILabel!
-
     @IBOutlet weak var activityLevelSlider: UISlider!
     @IBOutlet weak var selfHarmSlider: UISlider!
     @IBOutlet weak var stressSlider: UISlider!
@@ -57,12 +56,11 @@ class BehaviorTrackingVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
     @IBAction func addVideoRecording(_ sender: UIButton) {
     }
     @IBAction func trackButtonPressed(_ sender: AnyObject) {
-    let behavior = BehaviorTrack(mood: selectedMood, stress: Int(stressSlider.value), activityLevel: Int(activityLevelSlider.value), selfHarm: Int(selfHarmSlider.value), location: locationTextField.text!, date: dateLabel.text!, time: timeLabel.text!, notes: additionalNotesField.text!, trigger: triggerTextField.text!, resolution: resolutionTextField.text!)
+    let behavior = BehaviorTrack(mood: selectedMood, stress: Int(stressSlider.value), activityLevel: Int(activityLevelSlider.value), selfHarm: Int(selfHarmSlider.value), location: locationTextField.text!, date: dateLabel.text!, time: timeLabel.text!, notes: (additionalNotesField?.text!)!, trigger: (triggerTextField?.text!)!, resolution: (resolutionTextField?.text!)!)
         
         RealmHelper.addBehaviorTrack(behavior: behavior)
         behaviorTracks.append(behavior)
         
-        print(behavior)
         
         let msg = "Your behavior note has been recorded successfully!"
         let alert = UIAlertController(title: "Succes", message: msg, preferredStyle: .alert)
@@ -78,7 +76,7 @@ class BehaviorTrackingVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
         //added to realm database
 //        RealmHelper.addBehaviorTrack(behavior: behavior)
         //retrieve from database
-        var realmBehaviors = RealmHelper.retrieveBehavior()
+        let realmBehaviors = RealmHelper.retrieveBehavior()
         
         print(realmBehaviors)
         
@@ -126,7 +124,7 @@ class BehaviorTrackingVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        var realmBehaviors = RealmHelper.retrieveBehavior()
+        let realmBehaviors = RealmHelper.retrieveBehavior()
         print(realmBehaviors)
 //        if audioPlayer.isPlaying {
 //            audioPlayer.stop() // Stop the sound that's playing
@@ -263,4 +261,6 @@ class BehaviorTrackingVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
         }
     }
 }
+
+
 

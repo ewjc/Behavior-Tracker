@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0906B5231DC7DE0E008031E1 /* TrackedNotesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0906B5221DC7DE0E008031E1 /* TrackedNotesVC.swift */; };
+		090AA83B1DD05729000514FC /* NotesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090AA83A1DD05729000514FC /* NotesTableViewController.swift */; };
 		0910AE891DBFC558009FB883 /* BehaviorTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0910AE881DBFC558009FB883 /* BehaviorTrack.swift */; };
 		0910AE8B1DBFC580009FB883 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0910AE8A1DBFC580009FB883 /* Goal.swift */; };
 		0910AE8D1DBFCBFB009FB883 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0910AE8C1DBFCBFB009FB883 /* User.swift */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		0906B5221DC7DE0E008031E1 /* TrackedNotesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackedNotesVC.swift; sourceTree = "<group>"; };
+		090AA83A1DD05729000514FC /* NotesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesTableViewController.swift; sourceTree = "<group>"; };
 		0910AE881DBFC558009FB883 /* BehaviorTrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BehaviorTrack.swift; sourceTree = "<group>"; };
 		0910AE8A1DBFC580009FB883 /* Goal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		0910AE8C1DBFCBFB009FB883 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				0919FDB81DC93B73002AEA0E /* Helpers */,
 				0906B5241DC7DE1C008031E1 /* Model */,
 				0981FA901DBED4CA00B6BA69 /* AppDelegate.swift */,
+				090AA83A1DD05729000514FC /* NotesTableViewController.swift */,
 				0906B5221DC7DE0E008031E1 /* TrackedNotesVC.swift */,
 				0981FA921DBED4CA00B6BA69 /* BehaviorTrackingVC.swift */,
 				0981FA941DBED4CA00B6BA69 /* Main.storyboard */,
@@ -245,6 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0910AE8D1DBFCBFB009FB883 /* User.swift in Sources */,
+				090AA83B1DD05729000514FC /* NotesTableViewController.swift in Sources */,
 				0910AE891DBFC558009FB883 /* BehaviorTrack.swift in Sources */,
 				0906B5231DC7DE0E008031E1 /* TrackedNotesVC.swift in Sources */,
 				0981FA931DBED4CA00B6BA69 /* BehaviorTrackingVC.swift in Sources */,
@@ -294,6 +298,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -343,6 +348,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -371,6 +377,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3C54445E58AE07E06DD184CC /* Pods-Behavior Tracker.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = RN596T8M84;
 				INFOPLIST_FILE = "Behavior Tracker/Info.plist";
@@ -385,6 +392,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DA601DA0DFBB453D71AF6B8A /* Pods-Behavior Tracker.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = RN596T8M84;
 				INFOPLIST_FILE = "Behavior Tracker/Info.plist";
