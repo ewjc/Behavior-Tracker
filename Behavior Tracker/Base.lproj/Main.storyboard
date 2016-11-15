@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="oo9-Qf-LSA">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="notesCell" id="oo9-Qf-LSA">
                                 <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oo9-Qf-LSA" id="7Jq-en-Mum">
@@ -63,10 +63,6 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="8cw-qg-Qwm"/>
                     <connections>
-                        <outlet property="dateLabel" destination="pNz-tl-aUg" id="J7N-0v-MCg"/>
-                        <outlet property="locationLabel" destination="Kps-7O-MdS" id="Jwe-gI-xjR"/>
-                        <outlet property="moodLabel" destination="5PL-Ir-dl4" id="Nq2-AC-p90"/>
-                        <outlet property="timeLabel" destination="DOT-ed-bmj" id="nmV-TT-XBv"/>
                         <segue destination="JIU-tb-nK0" kind="show" id="qyz-CA-mHm"/>
                     </connections>
                 </tableViewController>

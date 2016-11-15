@@ -11,17 +11,11 @@ import Realm
 import RealmSwift
 
 class NotesTableViewController: UITableViewController {
-
     
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var moodLabel: UILabel!
-
+//    var behaviors: Results<BehaviorTrack>!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        
     }
 
     override func didReceiveMemoryWarning() {
