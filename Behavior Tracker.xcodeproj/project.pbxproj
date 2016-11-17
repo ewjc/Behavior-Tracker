@@ -14,6 +14,7 @@
 		0910AE8D1DBFCBFB009FB883 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0910AE8C1DBFCBFB009FB883 /* User.swift */; };
 		0919FDBA1DC93B8B002AEA0E /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0919FDB91DC93B8B002AEA0E /* RealmHelper.swift */; };
 		09700D151DDE48B90045AE52 /* GoalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09700D141DDE48B90045AE52 /* GoalTableViewController.swift */; };
+		09700D171DDE48B90045AE52 /* GoalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09700D161DDE48B90045AE52 /* GoalTableViewCell.swift */; };
 		0981FA911DBED4CA00B6BA69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0981FA901DBED4CA00B6BA69 /* AppDelegate.swift */; };
 		0981FA931DBED4CA00B6BA69 /* BehaviorTrackingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0981FA921DBED4CA00B6BA69 /* BehaviorTrackingVC.swift */; };
 		0981FA961DBED4CA00B6BA69 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0981FA941DBED4CA00B6BA69 /* Main.storyboard */; };
@@ -30,6 +31,7 @@
 		0910AE8C1DBFCBFB009FB883 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0919FDB91DC93B8B002AEA0E /* RealmHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmHelper.swift; sourceTree = "<group>"; };
 		09700D141DDE48B90045AE52 /* GoalTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalTableViewController.swift; sourceTree = "<group>"; };
+		09700D161DDE48B90045AE52 /* GoalTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalTableViewCell.swift; sourceTree = "<group>"; };
 		0981FA8D1DBED4CA00B6BA69 /* Behavior Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Behavior Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0981FA901DBED4CA00B6BA69 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0981FA921DBED4CA00B6BA69 /* BehaviorTrackingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BehaviorTrackingVC.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				0981FA991DBED4CA00B6BA69 /* LaunchScreen.storyboard */,
 				0981FA9C1DBED4CA00B6BA69 /* Info.plist */,
 				09700D141DDE48B90045AE52 /* GoalTableViewController.swift */,
+				09700D161DDE48B90045AE52 /* GoalTableViewCell.swift */,
 			);
 			path = "Behavior Tracker";
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				0919FDBA1DC93B8B002AEA0E /* RealmHelper.swift in Sources */,
 				0981FA911DBED4CA00B6BA69 /* AppDelegate.swift in Sources */,
 				09700D151DDE48B90045AE52 /* GoalTableViewController.swift in Sources */,
+				09700D171DDE48B90045AE52 /* GoalTableViewCell.swift in Sources */,
 				0910AE8B1DBFC580009FB883 /* Goal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
