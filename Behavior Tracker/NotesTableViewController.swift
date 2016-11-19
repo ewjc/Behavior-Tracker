@@ -12,17 +12,16 @@ import RealmSwift
 
 class NotesTableViewController: UITableViewController {
     
-//    var behaviors: Results<BehaviorTrack>!
+    var realmBehaviors: Results<BehaviorTrack>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        realmBehaviors = RealmHelper.retrieveBehavior()
+
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
+    
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -32,12 +31,13 @@ class NotesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 10
+        return realmBehaviors.count
     }
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "notesCell", for: indexPath) 
+        
         
 
         return cell
