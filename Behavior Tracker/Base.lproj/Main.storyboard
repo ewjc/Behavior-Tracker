@@ -63,6 +63,10 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="8cw-qg-Qwm"/>
                     <connections>
+                        <outlet property="dateLabel" destination="pNz-tl-aUg" id="y84-pc-BYA"/>
+                        <outlet property="locationLabel" destination="Kps-7O-MdS" id="Wt4-0h-qWg"/>
+                        <outlet property="moodLabel" destination="5PL-Ir-dl4" id="0Mo-8N-Ehl"/>
+                        <outlet property="timeLabel" destination="DOT-ed-bmj" id="FMx-YN-XCM"/>
                         <segue destination="JIU-tb-nK0" kind="show" id="qyz-CA-mHm"/>
                     </connections>
                 </tableViewController>

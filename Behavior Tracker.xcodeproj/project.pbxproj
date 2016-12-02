@@ -66,6 +66,25 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		0916E1611DE0E9A900BED196 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				090AA83A1DD05729000514FC /* NotesTableViewController.swift */,
+				0906B5221DC7DE0E008031E1 /* TrackedNotesVC.swift */,
+				09700D141DDE48B90045AE52 /* GoalTableViewController.swift */,
+				0981FA921DBED4CA00B6BA69 /* BehaviorTrackingVC.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		0916E1621DE0E9DA00BED196 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				09700D161DDE48B90045AE52 /* GoalTableViewCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		0919FDB81DC93B73002AEA0E /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -95,18 +114,15 @@
 		0981FA8F1DBED4CA00B6BA69 /* Behavior Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				0916E1621DE0E9DA00BED196 /* View */,
 				0919FDB81DC93B73002AEA0E /* Helpers */,
 				0906B5241DC7DE1C008031E1 /* Model */,
+				0916E1611DE0E9A900BED196 /* Controller */,
 				0981FA901DBED4CA00B6BA69 /* AppDelegate.swift */,
-				090AA83A1DD05729000514FC /* NotesTableViewController.swift */,
-				0906B5221DC7DE0E008031E1 /* TrackedNotesVC.swift */,
-				0981FA921DBED4CA00B6BA69 /* BehaviorTrackingVC.swift */,
 				0981FA941DBED4CA00B6BA69 /* Main.storyboard */,
 				0981FA971DBED4CA00B6BA69 /* Assets.xcassets */,
 				0981FA991DBED4CA00B6BA69 /* LaunchScreen.storyboard */,
 				0981FA9C1DBED4CA00B6BA69 /* Info.plist */,
-				09700D141DDE48B90045AE52 /* GoalTableViewController.swift */,
-				09700D161DDE48B90045AE52 /* GoalTableViewCell.swift */,
 			);
 			path = "Behavior Tracker";
 			sourceTree = "<group>";

@@ -8,15 +8,12 @@
 
 import UIKit
 import AVFoundation
+import Realm
+import RealmSwift
 
-
-class TrackedNotesVC: UIViewController, AVAudioPlayerDelegate {
+class TrackedNotesVC: UIViewController {
     
     //MARK:  Properties
-    var selectedAudioFileName = String()
-    var fileURL : URL?
-    var timer:Timer!
-    var audioPlayer = AVAudioPlayer()
     
     
     //MARK:  IBOutlet Properties
@@ -27,7 +24,6 @@ class TrackedNotesVC: UIViewController, AVAudioPlayerDelegate {
     @IBOutlet weak var resolutionLabel: UILabel!
     @IBOutlet weak var notes: UILabel!
     @IBOutlet weak var playedTime: UILabel!
-
     
 
     //MARK:  View Life Cycle
@@ -42,9 +38,7 @@ class TrackedNotesVC: UIViewController, AVAudioPlayerDelegate {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-            if audioPlayer.isPlaying {
-                audioPlayer.stop() // Stop the sound that's playing
-            }
+
     }
 
 }
