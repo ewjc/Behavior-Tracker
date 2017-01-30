@@ -13,6 +13,7 @@ import RealmSwift
 
 class BehaviorTrackingVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
     
+    // MARK: Properties
     var moodArray = ["😀", "😘", "😞", "😔", "😨", "😭", "😖", "😡"]
     var behaviorTracks = List<BehaviorTrack>()
     var selectedMood = 0
@@ -75,6 +76,7 @@ class BehaviorTrackingVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
         super.viewDidLoad()
         //retrieve from database
         let realmBehaviors = RealmHelper.retrieveBehavior()
+        
 
         
         //MARK: DATE
