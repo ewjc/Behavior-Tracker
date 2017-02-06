@@ -21,7 +21,9 @@ class BehaviorTrackingVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
     let date = Date()
     let calendar = Calendar.current
     let formatter = DateFormatter()
-
+    
+    
+    // MARK: IBOutlets
     @IBOutlet var moodButtons: [UIButton]!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
@@ -36,6 +38,8 @@ class BehaviorTrackingVC: UIViewController, AVAudioRecorderDelegate, AVAudioPlay
     @IBOutlet weak var selfHarmSlider: UISlider!
     @IBOutlet weak var stressSlider: UISlider!
     
+    
+    // MARK: IBActions
     
     @IBAction func moodButtonPressed(_ sender: UIButton) {
         
